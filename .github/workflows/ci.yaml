@@ -20,14 +20,15 @@ jobs:
         shell: cmd
         run: |
           python-3.6.8.exe /quiet PrependPath=1 Include_test=0
-          whoami
-          dir
+          dir %LocalAppData%\Programs\Python
+          dir %ProgramFiles%
+          dir %ProgramFiles(x86)%
           
       - name: Prepare Python 3.6 venv
         shell: cmd
         run: |
           mkdir C:\venv
-          %LocalAppData%\Programs\Python\Python36\python.exe" -m venv c:\venv
+          %LocalAppData%\Programs\Python\Python36\python.exe -m venv c:\venv
           dir C:\venv
           
       - name: Install pip dependency
@@ -40,7 +41,6 @@ jobs:
       - name: Download Python 3.9 source
         run: |
           curl -o C:\python.tar.xz https://www.python.org/ftp/python/3.9.14/Python-3.9.14.tar.xz
-
 
       - name: Extract Python 3.9 source
         run: |
