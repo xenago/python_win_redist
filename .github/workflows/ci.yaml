@@ -44,10 +44,8 @@ jobs:
 
       - name: Extract Python 3.9 source
         run: |
-          echo "::add-path::C:\Program Files\Git\mingw64\bin"
-          echo "::add-path::C:\Program Files\Git\usr\bin"
-          echo "::add-path::C:\Program Files\Git\bin"
-          tar -xvzf C:\python.tar.xz -C C:\venv
+          where tar
+          tar -xzvf C:\python.tar.xz -C C:\venv
           dir C:\venv
 
       - name: Build python 3.9 from source
