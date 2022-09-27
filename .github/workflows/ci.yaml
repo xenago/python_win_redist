@@ -27,16 +27,14 @@ jobs:
         shell: cmd
         run: |
           mkdir C:\venv
-          dir C:\
           %LocalAppData%\Programs\Python\Python36\python.exe" -m venv c:\venv
-          cd C:\venv
-          dir
+          dir C:\venv
           
       - name: Install pip dependency
         shell: cmd
+        working-directory: C:\venv
         run: |
-          cd C:\venv
-          Scripts\activate
+          .\Scripts\activate
           python -m pip install Sphinx==3.5.4
           
       - name: Download Python 3.9 source
@@ -54,8 +52,8 @@ jobs:
 
       - name: Build python 3.9 from source
         shell: cmd
+        working-directory: C:\venv
         run: |
-          cd C:\venv
           buildrelease.bat -x86 -x64 --skip-pgo
           dir
           
