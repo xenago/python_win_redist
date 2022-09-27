@@ -33,17 +33,16 @@ jobs:
         shell: cmd
         working-directory: C:\venv
         run: |
-          .\Scripts\activate
-          pip install Sphinx==3.5.4
+          .\Scripts\pip3.exe install Sphinx==3.5.4
           
       - name: Download Python 3.9 source
         run: |
           curl -o C:\python.tar.xz https://www.python.org/ftp/python/3.9.14/Python-3.9.14.tar.xz
 
-      - name: Extract Python 3.9 source
+      - name: Extract Python 3.9 source directly into venv
         shell: cmd
         run: |
-          "C:\Program Files\Git\usr\bin\tar.exe" -xvf /c/python.tar.xz -C /c/venv
+          "C:\Program Files\Git\usr\bin\tar.exe" -xvf /c/python.tar.xz -C /c/venv --strip-components=1
           dir C:\venv
 
       - name: Build python 3.9 from source
