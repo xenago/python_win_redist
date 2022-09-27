@@ -46,7 +46,6 @@ jobs:
           dir C:\venv
 
       - name: Build python 3.9 from source
-        shell: cmd
         run: |
           build.bat
           dir C:\venv\PCbuild\amd64
