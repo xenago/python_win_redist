@@ -1,4 +1,4 @@
 C:
 cd C:\venv
 .\Scripts\activate
-PCbuild\build.bat -e -d -p x64
+.\PCbuild\build.bat -e -d -p x64
