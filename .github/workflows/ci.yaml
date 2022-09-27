@@ -12,21 +12,27 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Install Python 3.6 for build process
-        shell: cmd
+      - name: Download Python 3.6
         run: |
           curl -o python-3.6.8.exe https://www.python.org/ftp/python/3.6.8/python-3.6.8.exe
-          .\python-3.6.8.exe InstallAllUsers=1 PrependPath=1 Include_test=0
+
+      - name: Prepare Python 3.6
+        shell: cmd
+        run: |
+          python-3.6.8.exe InstallAllUsers=1 PrependPath=1 Include_test=0
           mkdir c:\venv
           "C:\Program Files\Python 3.6\python.exe" -m venv c:\venv
           cd C:\venv
-          .\Scripts\activate
+          Scripts\activate
           python -m pip install Sphinx==3.5.4
           
-      - name: Prepare and build python 3.9 from source
-        shell: cmd
+      - name: Download Python 3.9 source
         run: |
           curl -o C:\python.tar.xz https://www.python.org/ftp/python/3.9.14/Python-3.9.14.tar.xz
+
+      - name: Build python 3.9 from source
+        shell: cmd
+        run: |
           tar -xvzf C:\python.tar.xz -C C:\venv
           cd C:\venv
           buildrelease.bat -x86 -x64 --skip-pgo
