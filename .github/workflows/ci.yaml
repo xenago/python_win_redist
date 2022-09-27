@@ -45,12 +45,16 @@ jobs:
           "C:\Program Files\Git\usr\bin\tar.exe" -xf /c/python.tar.xz -C /c/venv --strip-components=1
           dir C:\venv
 
-      - name: Build python 3.9 from source
+      - name: Patch Python 3.9 source
+        run: |
+          cmd.exe /C patch.bat
+
+      - name: Build Python 3.9 from source
         run: |
           cmd.exe /C build.bat
           dir C:\venv\PCbuild\amd64
           
-      - name: Package release
+      - name: Compress release
         run: |
           mkdir C:\output
           Compress-Archive -Path C:\venv\PCbuild\amd64\* -DestinationPath C:\output\python3.9.zip  
