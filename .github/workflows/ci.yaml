@@ -50,6 +50,12 @@ jobs:
           cmd.exe /C build.bat
           dir C:\venv\PCbuild\amd64
           
+      - name: Package release
+        run: |
+          mkdir C:\output
+          Compress-Archive -Path C:\venv\PCbuild\amd64\* -DestinationPath C:\output\python3.9.zip  
+          dir C:\output
+          
       - name: Generate release tag
         id: tag
         run: |
@@ -61,4 +67,4 @@ jobs:
           fail_on_unmatched_files: true
           tag_name: ${{ steps.tag.outputs.release_tag }}
           files: |
-            C:/venv/PCbuild/amd64/*
+            C:/output/*
