@@ -21,8 +21,6 @@ jobs:
         run: |
           python-3.6.8.exe /quiet PrependPath=1 Include_test=0
           dir %LocalAppData%\Programs\Python
-          dir %ProgramFiles%
-          dir %ProgramFiles(x86)%
           
       - name: Prepare Python 3.6 venv
         shell: cmd
@@ -36,7 +34,7 @@ jobs:
         working-directory: C:\venv
         run: |
           .\Scripts\activate
-          python -m pip install Sphinx==3.5.4
+          %LocalAppData%\Programs\Python\Python36\python.exe -m pip install Sphinx==3.5.4
           
       - name: Download Python 3.9 source
         run: |
@@ -44,15 +42,14 @@ jobs:
 
       - name: Extract Python 3.9 source
         run: |
-          where tar
-          tar -xzvf C:\python.tar.xz -C C:\venv
+          tar -xvf C:\python.tar.xz -C C:\venv
           dir C:\venv
 
       - name: Build python 3.9 from source
         shell: cmd
         working-directory: C:\venv
         run: |
-          buildrelease.bat -x86 -x64 --skip-pgo
+          PCbuild\build.bat -e -d -p x64
           dir
           
       - name: Generate release tag
