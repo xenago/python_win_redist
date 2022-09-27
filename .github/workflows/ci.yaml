@@ -47,7 +47,7 @@ jobs:
 
       - name: Build python 3.9 from source
         run: |
-          build.bat
+          cmd.exe /C build.bat
           dir C:\venv\PCbuild\amd64
           
       - name: Generate release tag
