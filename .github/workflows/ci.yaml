@@ -43,7 +43,7 @@ jobs:
       - name: Extract Python 3.9 source
         shell: cmd
         run: |
-          "C:\Program Files\Git\usr\bin\tar.exe" -xvf C:\python.tar.xz -C C:\venv
+          "C:\Program Files\Git\usr\bin\tar.exe" -xvf /c/python.tar.xz -C /c/venv
           dir C:\venv
 
       - name: Build python 3.9 from source
