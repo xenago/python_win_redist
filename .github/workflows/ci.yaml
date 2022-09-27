@@ -35,11 +35,7 @@ jobs:
       - name: Install pip dependency
         shell: cmd
         run: |
-          mkdir C:\venv
-          dir C:\
-          %LocalAppData%\Programs\Python\Python36\python.exe" -m venv c:\venv
           cd C:\venv
-          dir
           Scripts\activate
           python -m pip install Sphinx==3.5.4
           
@@ -49,8 +45,10 @@ jobs:
 
 
       - name: Extract Python 3.9 source
-        shell: cmd
         run: |
+          echo "::add-path::C:\Program Files\Git\mingw64\bin"
+          echo "::add-path::C:\Program Files\Git\usr\bin"
+          echo "::add-path::C:\Program Files\Git\bin"
           tar -xvzf C:\python.tar.xz -C C:\venv
           dir C:\venv
 
