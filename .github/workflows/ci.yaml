@@ -17,6 +17,7 @@ jobs:
           curl -o python-3.6.8.exe https://www.python.org/ftp/python/3.6.8/python-3.6.8.exe
           .\python-3.6.8.exe InstallAllUsers=1 PrependPath=1 Include_test=0
           mkdir c:\venv
+          cmd
           "C:\Program Files\Python 3.6\python.exe" -m venv c:\venv
           cd C:\venv
           .\Scripts\activate
