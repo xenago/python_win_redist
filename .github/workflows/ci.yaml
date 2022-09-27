@@ -19,7 +19,7 @@ jobs:
       - name: Prepare Python 3.6
         shell: cmd
         run: |
-          python-3.6.8.exe PrependPath=1 Include_test=0
+          python-3.6.8.exe /quiet PrependPath=1 Include_test=0
           mkdir c:\venv
           %LocalAppData%\Programs\Python\Python36\python.exe" -m venv c:\venv
           cd C:\venv
