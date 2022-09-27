@@ -16,13 +16,30 @@ jobs:
         run: |
           curl -o python-3.6.8.exe https://www.python.org/ftp/python/3.6.8/python-3.6.8.exe
 
-      - name: Prepare Python 3.6
+      - name: Install Python 3.6
         shell: cmd
         run: |
           python-3.6.8.exe /quiet PrependPath=1 Include_test=0
-          mkdir c:\venv
+          whoami
+          dir
+          
+      - name: Prepare Python 3.6 venv
+        shell: cmd
+        run: |
+          mkdir C:\venv
+          dir C:\
           %LocalAppData%\Programs\Python\Python36\python.exe" -m venv c:\venv
           cd C:\venv
+          dir
+          
+      - name: Install pip dependency
+        shell: cmd
+        run: |
+          mkdir C:\venv
+          dir C:\
+          %LocalAppData%\Programs\Python\Python36\python.exe" -m venv c:\venv
+          cd C:\venv
+          dir
           Scripts\activate
           python -m pip install Sphinx==3.5.4
           
@@ -30,10 +47,16 @@ jobs:
         run: |
           curl -o C:\python.tar.xz https://www.python.org/ftp/python/3.9.14/Python-3.9.14.tar.xz
 
-      - name: Build python 3.9 from source
+
+      - name: Extract Python 3.9 source
         shell: cmd
         run: |
           tar -xvzf C:\python.tar.xz -C C:\venv
+          dir C:\venv
+
+      - name: Build python 3.9 from source
+        shell: cmd
+        run: |
           cd C:\venv
           buildrelease.bat -x86 -x64 --skip-pgo
           dir
