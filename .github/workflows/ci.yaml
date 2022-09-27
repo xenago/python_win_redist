@@ -42,15 +42,16 @@ jobs:
       - name: Extract Python 3.9 source directly into venv
         shell: cmd
         run: |
-          "C:\Program Files\Git\usr\bin\tar.exe" -xvf /c/python.tar.xz -C /c/venv --strip-components=1
+          "C:\Program Files\Git\usr\bin\tar.exe" -xf /c/python.tar.xz -C /c/venv --strip-components=1
           dir C:\venv
 
       - name: Build python 3.9 from source
         shell: cmd
         working-directory: C:\venv
         run: |
+          Scripts\activate
           PCbuild\build.bat -e -d -p x64
-          dir
+          dir C:\venv\PCbuild\amd64
           
       - name: Generate release tag
         id: tag
@@ -63,4 +64,4 @@ jobs:
           fail_on_unmatched_files: true
           tag_name: ${{ steps.tag.outputs.release_tag }}
           files: |
-            C:/venv/PCbuild/win32/*
+            C:/venv/PCbuild/amd64/*
