@@ -47,10 +47,8 @@ jobs:
 
       - name: Build python 3.9 from source
         shell: cmd
-        working-directory: C:\venv
         run: |
-          Scripts\activate
-          PCbuild\build.bat -e -d -p x64
+          build.bat
           dir C:\venv\PCbuild\amd64
           
       - name: Generate release tag
