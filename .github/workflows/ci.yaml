@@ -12,10 +12,14 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Download msbuild 140 tools
+        run: |
+           curl -o BuildTools_Full.exe https://download.microsoft.com/download/E/E/D/EEDF18A8-4AED-4CE0-BEBE-70A83094FC5A/BuildTools_Full.exe
+
       - name: Install msbuild 140 tools
-        uses: crazy-max/ghaction-chocolatey@v2
-        with:
-          args: install visualcpp-build-tools -version 14.0.25420.1 -y
+        shell: cmd
+        run: |
+           BuildTools_Full.exe /quiet /norestart
 
       - name: Download Python 3.6
         run: |
