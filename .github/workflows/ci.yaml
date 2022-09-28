@@ -12,6 +12,11 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Install msbuild 140 tools
+        uses: crazy-max/ghaction-chocolatey@v2
+        with:
+          args: install visualcpp-build-tools -version 14.0.25420.1 -y
+
       - name: Download Python 3.6
         run: |
           curl -o python-3.6.8.exe https://www.python.org/ftp/python/3.6.8/python-3.6.8-amd64.exe
