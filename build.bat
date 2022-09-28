@@ -1,3 +1,3 @@
 C:
 cd C:\venv
-C:\venv\Scripts\activate & C:\venv\PCbuild\build.bat -e -d -p x64 & deactivate
+C:\venv\Scripts\activate & C:\venv\Tools\msi\buildrelease.bat -x64 --skip-pgo & deactivate
