@@ -5,18 +5,18 @@ on: push
 jobs:
   build_release:
     name: build and release
-    runs-on: windows-2019
+    runs-on: windows-2022
     steps:
       - name: Checkout
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
 
-      - name: Download msbuild 140 tools
+      - name: Download msbuild 140 tools (2015)
         run: |
            curl -o BuildTools_Full.exe https://download.microsoft.com/download/E/E/D/EEDF18A8-4AED-4CE0-BEBE-70A83094FC5A/BuildTools_Full.exe
 
-      - name: Install msbuild 140 tools
+      - name: Install msbuild tools
         shell: cmd
         run: |
            BuildTools_Full.exe /quiet /norestart
@@ -62,13 +62,8 @@ jobs:
         run: |
           cmd.exe /C build.bat
           dir C:\venv\PCbuild\amd64
-          
-      - name: Compress release
-        run: |
-          mkdir C:\output
-          Compress-Archive -Path C:\venv\PCbuild\amd64\* -DestinationPath C:\output\python3.9.zip  
-          dir C:\output
-          
+          dir C:\venv\PCbuild\amd64\en-us
+  
       - name: Generate release tag
         id: tag
         run: |
@@ -80,4 +75,4 @@ jobs:
           fail_on_unmatched_files: true
           tag_name: ${{ steps.tag.outputs.release_tag }}
           files: |
-            C:/output/*
+            C:/venv/PCbuild/amd64/en-us/*.exe
