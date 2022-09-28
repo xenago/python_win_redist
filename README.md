@@ -1,14 +1,16 @@
 # python_win_redist
 
-Build Python 3.9 amd64 Windows installers from source.
+Build 64-bit Windows installers for Python 3.9 from source.
 
 # Current releases:
 
-* 3.9.14
+* [3.9.14](https://github.com/xenago/python_win_redist/releases/tag/UserBuild_2022.09.28_05-04)
+ * [python-3.9.14-amd64-full.exe](https://github.com/xenago/python_win_redist/releases/download/UserBuild_2022.09.28_05-04/python-3.9.14-amd64-full.exe)
+ * [python-3.9.14-amd64.exe](https://github.com/xenago/python_win_redist/releases/download/UserBuild_2022.09.28_05-04/python-3.9.14-amd64.exe)
 
 ## Motivation
 
-At a certain point, supported Python versions receive security updates without installers, so to upgrade an existing install one must build the installer from source.
+At a certain point, supported Python versions receive security updates but no installers, so one must build the installer from source to upgrade an existing install.
 
 Many of those installers are built and available here in [@adang1345's repo](https://github.com/adang1345/PythonWindows) if you don't need to build one from source yourself (e.g. by forking this repository).
 
@@ -35,4 +37,3 @@ https://github.com/adang1345/PythonWindows
 https://devguide.python.org/getting-started/setup-building/#windows
 
 https://github.com/python/cpython/blob/3.8/PCbuild/readme.txt
-
