@@ -1,5 +1,11 @@
 # python_win_redist
-Build redistributable python installers from source
+
+Build Python 3.9 amd64 Windows installers from source.
+
+## WIP - Python builds but not yet the installer
+
+1. Fix "The build tools for Visual Studio 2015 (Platform Toolset = 'v140') cannot be found"
+2. Determine output directory for msi installer (if different)
 
 ## References
 
