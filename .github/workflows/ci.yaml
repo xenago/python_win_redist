@@ -65,9 +65,10 @@ jobs:
           dir C:\venv\PCbuild\amd64\en-us
   
       - name: Generate release tag
+        shell: pwsh
         id: tag
         run: |
-          echo "release_tag=UserBuild_$(date +"%Y.%m.%d_%H-%M")" >> $GITHUB_OUTPUT
+          "release_tag=UserBuild_$(date +"%Y.%m.%d_%H-%M")" >> $env:GITHUB_OUTPUT
           
       - name: Release
         uses: softprops/action-gh-release@v1
