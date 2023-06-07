@@ -2,8 +2,11 @@
 
 Build 64-bit Windows installers for Python 3.9 from source.
 
-## Current releases:
+## Available releases:
 
+* [3.9.17](https://github.com/xenago/python_win_redist/releases/tag/UserBuild_2023.06.07_18-50)
+  * [python-3.9.17-amd64-full.exe](https://github.com/xenago/python_win_redist/releases/download/UserBuild_2023.06.07_18-50/python-3.9.17-amd64-full.exe)
+  * [python-3.9.17-amd64.exe](https://github.com/xenago/python_win_redist/releases/download/UserBuild_2023.06.07_18-50/python-3.9.17-amd64.exe)
 * [3.9.16](https://github.com/xenago/python_win_redist/releases/tag/UserBuild_2022.12.07_19-41)
   * [python-3.9.16-amd64-full.exe](https://github.com/xenago/python_win_redist/releases/download/UserBuild_2022.12.07_19-41/python-3.9.16-amd64-full.exe)
   * [python-3.9.16-amd64.exe](https://github.com/xenago/python_win_redist/releases/download/UserBuild_2022.12.07_19-41/python-3.9.16-amd64.exe)
