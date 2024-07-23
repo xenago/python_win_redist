@@ -25,7 +25,7 @@ Many of those installers are built and available here in [@adang1345's repo](htt
 
 That repository was a very useful resource. Some highlights:
 
-* The Python 3.9 section in [`Notes.md`](https://github.com/adang1345/PythonWindows/blob/master/Notes.md)
+* The Python 3.9 section in [`Notes.md`](https://github.com/adang1345/PythonWindows/blob/master/Notes.md#python-39)
 * Several small patches were recreated from that repository
   * Building for release
   * Enabling debug symbols/binaries
