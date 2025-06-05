@@ -46,7 +46,7 @@ jobs:
           
       - name: Download Python 3.9 source
         run: |
-          curl -o C:\python.tar.xz https://www.python.org/ftp/python/3.9.22/Python-3.9.22.tar.xz
+          curl -o C:\python.tar.xz https://www.python.org/ftp/python/3.9.23/Python-3.9.23.tar.xz
 
       - name: Extract Python 3.9 source directly into venv
         shell: cmd
