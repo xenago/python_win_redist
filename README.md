@@ -2,6 +2,8 @@
 
 Build 64-bit Windows installers for Python 3.9 from source.
 
+**Please note: Python 3.9 is now EOL. These builds are not suitable for production use any longer.**
+
 ## Available releases:
 
 * [3.9.23](https://github.com/xenago/python_win_redist/releases/tag/UserBuild_2025.06.05_17-28)
@@ -53,6 +55,8 @@ That repository was a very useful resource. Some highlights:
 Server 2019 is used, as the Server 2022 image causes an error:
 
 `MSB8020: The build tools for Visual Studio 2015 (Platform Toolset = 'v140') cannot be found. To build using the v140 build tools, please install Visual Studio 2015 build tools.  Alternatively, you may upgrade to the current Visual Studio tools by selecting the Project menu or right-click the solution, and then selecting "Retarget solution". [C:\venv\Tools\msi\bundle\bootstrap\pythonba.vcxproj]`
+
+As of July 2025, [this image is no longer available because of Microsoft's complete and utter inability to offer stable and reliable services](https://github.com/actions/runner-images/issues/12045). As such, no more automatic CI builds will be published here.
 
 ## Useful References
 
